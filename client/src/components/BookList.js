@@ -30,7 +30,7 @@ class BookList extends Component {
     } else {
       return data.books.map(book => {
         return (
-          <div className="list-group list-group-flush mt-3" key={book.id}>
+          <div className="list-group list-group-flush mt-3 ml-3" key={book.id}>
             <div> 
             <h4
               onClick={e => this.setState({ selected: book.id })}

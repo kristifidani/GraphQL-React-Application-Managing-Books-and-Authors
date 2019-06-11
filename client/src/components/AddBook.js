@@ -50,9 +50,12 @@ class AddBook extends Component {
   render() {
     return (
       <form onSubmit={this.submitForm.bind(this)}>
-        <div >
+       
+          <h3 className='font-weight-bold'>Add Book </h3>
+        <div>
           <label>Book name:</label>
           <input
+            className ='form-control'
             type="text"
             onChange={e => this.setState({ name: e.target.value })}
           />
@@ -60,18 +63,21 @@ class AddBook extends Component {
         <div >
           <label>Genre:</label>
           <input
+            className ='form-control'
             type="text"
             onChange={e => this.setState({ genre: e.target.value })}
           />
         </div>
         <div >
           <label>Author:</label>
-          <select onChange={e => this.setState({ authorId: e.target.value })}>
+          <select className="browser-default custom-select custom-select-lg mb-3"
+          onChange={e => this.setState({ authorId: e.target.value })}>
             <option>Select author</option>
             {this.displayAuthors()}
           </select>
         </div>
-        <button>+</button>
+        <button className='btn btn-outline-primary bg-dark text-white'>POST</button>
+  
       </form>
     );
   }

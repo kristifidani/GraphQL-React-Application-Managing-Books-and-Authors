@@ -12,7 +12,7 @@ app.use(cors());
 // connect to mlab database
 mongoose.connect(
 'mongodb://kristi123:kristi123@ds119548.mlab.com:19548/graphql-react-netninja-tut',
-{ useNewUrlParser: true }
+{ useNewUrlParser: true, useFindAndModify: false }
 )
 //Check connection
 let dbc = mongoose.connection;

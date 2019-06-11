@@ -34,7 +34,7 @@ const AuthorType = new GraphQLObjectType({
     fields: ( ) => ({
         id: { type: GraphQLID },
         name: { type: GraphQLString },
-        age: { type: GraphQLInt },
+        age: { type: GraphQLString },
         books: {
             type: new GraphQLList(BookType),
             resolve(parent, args){
@@ -83,7 +83,7 @@ const Mutation = new GraphQLObjectType({
             type: AuthorType,
             args: {
                 name: { type: new GraphQLNonNull(GraphQLString) },
-                age: { type: new GraphQLNonNull(GraphQLInt) }
+                age: { type: new GraphQLNonNull(GraphQLString) }
             },
             resolve(parent, args){
                 let author = new Author({
@@ -101,12 +101,7 @@ const Mutation = new GraphQLObjectType({
                 authorId: { type: new GraphQLNonNull(GraphQLID) }
             },
             resolve(parent, args){
-                Book.find({name: args.name}, (err, book) =>{
-                    if(err){
-                        console.log(err);
-                    } else if(book){
-                        console.log('Book exists');
-                    } else {
+                
                         let book = new Book({
                             name: args.name,
                             genre: args.genre,
@@ -114,8 +109,6 @@ const Mutation = new GraphQLObjectType({
                         });
                         return book.save();
                     }
-                })                
-            }
         },
         updateBook: {
             type: BookType,
