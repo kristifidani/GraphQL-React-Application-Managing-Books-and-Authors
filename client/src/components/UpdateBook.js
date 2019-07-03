@@ -45,7 +45,7 @@ class UpdateBookForm extends Component {
         <button className='btn btn-outline-primary btn-outline-success' onClick={this.updateBook}>update</button>
         {this.state.toBeUpdated ? (
           <form className="list-inline-item" onSubmit={this.handleBookUpdate}>
-          <div class="input-group mb-3">
+          <div className="input-group mb-3">
             <input
               className='ml-3 form-control'
               type="text"
@@ -58,7 +58,7 @@ class UpdateBookForm extends Component {
               value={this.state.genre}
               onChange={this.handleGenreChange}
             />
-            <div class="input-group-append">
+            <div className="input-group-append">
             <input className='btn btn-outline-primary btn-outline-success' type="submit" value="Finish" />
             </div>
             </div>

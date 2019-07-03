@@ -31,11 +31,13 @@ class AddBook extends Component {
   }
   submitForm(e) {
     e.preventDefault();
+    let name = this.state.name;
+    let genre = this.state.genre;
+    let authorId = this.state.authorId;
 
-    if(this.state.name === "" || this.state.genre === "" || this.state.authorId === ""){
-      console.log("All fields are required"); 
-    } else {
-       
+    if (!name || !genre || !authorId) {
+      return(alert("All fields are required"));
+    } else {      
     // use the addBookMutation
     this.props.addBookMutation({
       variables: {
@@ -45,6 +47,7 @@ class AddBook extends Component {
       },
       refetchQueries: [{ query: getBooksQuery }]
     });
+    this.setState({ name: "", genre: "", authorId: ""});
   }
 }
   render() {
@@ -57,6 +60,7 @@ class AddBook extends Component {
           <input
             className ='form-control'
             type="text"
+            value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
           />
         </div>
@@ -65,12 +69,14 @@ class AddBook extends Component {
           <input
             className ='form-control'
             type="text"
+            value={this.state.genre}
             onChange={e => this.setState({ genre: e.target.value })}
           />
         </div>
         <div >
           <label>Author:</label>
           <select className="browser-default custom-select custom-select-lg mb-3"
+          value={this.state.authorId}
           onChange={e => this.setState({ authorId: e.target.value })}>
             <option>Select author</option>
             {this.displayAuthors()}

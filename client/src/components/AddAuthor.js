@@ -16,11 +16,12 @@ class AddAuthor extends Component {
 
   submitForm(e) {
     e.preventDefault();
+    let name = this.state.name;
+    let age = this.state.age;
 
-    if(this.state.name === "" || this.state.age === ""){
-      console.log("All fields are required"); 
-    } else {
-       
+    if (!name || !age) {
+      return(alert("All fields are required"));
+    } else {     
     // use the addBookMutation
     this.props.addAuthorMutation({
       variables: {
@@ -29,6 +30,7 @@ class AddAuthor extends Component {
       },
       refetchQueries: [{ query: getAuthorsQuery }]
     });
+    this.setState({ name: "", age: ""});
   }
 }
   render() {
@@ -41,6 +43,7 @@ class AddAuthor extends Component {
           <input
             className ='form-control'
             type="text"
+            value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
           />
         </div>
@@ -49,6 +52,7 @@ class AddAuthor extends Component {
           <input
             className ='form-control'
             type="number"
+            value={this.state.age}
             onChange={e => this.setState({ age: e.target.value })}
           />
         </div>
