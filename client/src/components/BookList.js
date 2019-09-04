@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import { graphql, compose } from "react-apollo";
 import { getBooksQuery, deleteBookMutation } from "../queries/queries";
@@ -32,11 +33,13 @@ class BookList extends Component {
         return (
           <div className="list-group list-group-flush mt-3 ml-3" key={book.id}>
             <div> 
-            <h4
+            <a
               onClick={e => this.setState({ selected: book.id })}
-            >
+              href = "#"
+            > <h4>
               {book.name}{" "}
-            </h4>
+              </h4>
+            </a>
             <ul className="list-inline">
               <li className="list-inline-item">
                 <button
