@@ -17,7 +17,7 @@
 - I declared a GraphQL object type for books and one for authors and connected them by the IDs.
 - This schema must relate to the Mongo DB schema with same properties. 
 - I could now create Root Queries such as getting all books in total, all authors, all books related to one author etc. 
-- Additionally, Mutations such as adding new author, adding new book, update, delete in the form of queries without multiple requests. 
+- Additionally, Mutations such as adding new author, new book, update, delete in the form of queries without multiple requests. 
 
 ### Front-End Client Side
 
