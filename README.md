@@ -1,36 +1,54 @@
-# GraphQL-React Project Overview
+# GraphQL-React Application: Managing Books and Authors
 
-- This project is a full stack application where I use React for the front-end and GraphQL for the back-end. 
-- It does not have a user register and authentication process. 
-- Users can add books + authors through two forms and have them displayed.  
-- They can click on books and have more detailed information.
+Welcome to the README for my GraphQL-React project! This full stack application combines the power of **React** for the front-end and **GraphQL** for the back-end to create an interactive platform for managing books and authors.
 
-### Back-End Server Side
+## Technologies Overview
 
-- I initialized a JSON file with npm init, completed the questions and installed packages as dependencies. 
-- It is still an Express application but I used GraphQL for the API.  
-- I have a “models” folder with authors and books files used for Mongo DB model schemas. 
-- I created the server and established a connection with Mongo DB. 
-- After I had to bind Express with GraphQL with 'express-graphql' package. 
-- All these configurations happen at app.js file which is the main file of the server application.
-- Relationships and functionalities happen at schema.js file in “schema” folder. 
-- I declared a GraphQL object type for books and one for authors and connected them by the IDs.
-- This schema must relate to the Mongo DB schema with same properties. 
-- I could now create Root Queries such as getting all books in total, all authors, all books related to one author etc. 
-- Additionally, Mutations such as adding new author, new book, update, delete in the form of queries without multiple requests. 
+- **React**: The front-end is built using the **React** library, known for its component-based architecture and efficient rendering. This allows for the creation of dynamic and responsive user interfaces, enhancing the user experience.
 
-### Front-End Client Side
+- **GraphQL**: The back-end is powered by **GraphQL**, a flexible query language for APIs. Unlike traditional REST APIs, GraphQL enables clients to request exactly the data they need, reducing over-fetching or under-fetching of data. This enhances performance and minimizes unnecessary data transfer.
 
-- I created my React application through create-react-app command which automatically generates a basic application. 
-- I used Apollo Client to link React application with the server side.
-- I created a “query” folder with queries.js file where I create my queries depending on my GraphQL schema created in the server and use mutations. 
-- I export all these variables containing queries and mutations and use them in my React components, where I pass them the required parameters to work properly. 
+- **Express**: The **Express** framework is employed to create the server that serves as the backbone of the application. It handles routing, middleware, and provides a solid foundation for integrating different components.
 
-### Results
+- **MongoDB**: The **MongoDB** database is used to store and manage the data related to authors and books. MongoDB's flexibility and NoSQL structure allow for easy representation of relationships between entities.
 
-- Users can view a list of books available in the website and can click each of them for more information on the book and author.
-- Since the application is an open source, users can add authors and books freely. 
-- They can modify and delete existing books in case they find mismatching information about them. 
-- The screen is split in two parts. First part shows the books as blocks with update and delete buttons. 
-- Second part shows detailed information when books are clicked. 
-- It is very comfortable since it doesn’t redirect users to another pages.
+- **Apollo Client**: To facilitate communication between the front-end and the GraphQL server, the application uses **Apollo Client**. This library simplifies the process of fetching and managing data from the server, enabling real-time data updates and efficient caching.
+
+## Features
+
+- Users can view a list of books available on the website and access more detailed information about each book and its author.
+- The application supports adding new authors and books, enhancing the content available for users.
+- Existing books can be updated and deleted, ensuring accurate and relevant information.
+- The user interface is designed to provide a seamless experience, with books displayed as blocks containing update and delete buttons.
+- Detailed information about books and authors is displayed within the same page, eliminating the need for redirects.
+
+## Back-End: Server Side
+
+The back-end of the application is built using Express and GraphQL, offering a robust foundation for data handling and interactions.
+
+- The server is initialized using the Express framework, with a connection established to MongoDB for data storage.
+- The GraphQL API is integrated using the `express-graphql` package, enabling efficient querying and mutation of data.
+- The 'models' folder contains schema definitions for authors and books, serving as the basis for MongoDB models.
+- The schema for GraphQL is defined in the `schema.js` file within the `schema` folder, specifying relationships and functionalities.
+- Object types are declared for books and authors, with connections established using unique identifiers.
+- Root queries and mutations are created, allowing users to fetch data and perform actions through single queries.
+
+## Front-End: Client Side
+
+The user interface is developed using React and Apollo Client, creating an interactive and engaging experience.
+
+- The React application is generated using the `create-react-app` command, providing a basic structure to build upon.
+- Apollo Client is utilized to connect the React application with the GraphQL server, enabling efficient data retrieval.
+- The `query` folder contains a `queries.js` file, where GraphQL queries and mutations are defined based on the server schema.
+- Queries and mutations are exported as variables and incorporated into React components to fetch and manipulate data.
+- The split-screen layout enhances user experience, displaying both the list of books and detailed information without redirection.
+
+## Usage
+
+1. Ensure you have Node.js and npm installed on your system.
+2. Clone this repository: `git clone https://github.com/kristifidani/GraphQL-React-Application-Managing-Books-and-Authors.git`
+3. Navigate to the project folder and install dependencies: `cd server && npm install`
+4. Set up your MongoDB instance.
+5. Start the server: `npm start`
+6. Open another terminal window, navigate to the `client` folder, and install client dependencies: `cd client && npm install`
+7. Start the React application: `npm start`
